@@ -1,0 +1,5 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { PageIntro, meta } from '@/components/aurestem/shared';
+import { ContactForm } from '@/components/aurestem/contact-form';
+export const Route = createFileRoute('/contact')({ head: () => meta('Contact Aurestem', 'Tell Aurestem about your product, packaging requirement and supply chain. Start a conversation about better packaging.'), component: Contact });
+function Contact() { return <><PageIntro label="CONTACT" title="Let's build better packaging.">Tell us about your product, packaging requirement and supply chain. Our team will explore the right material and packaging approach with you.</PageIntro><section className="contact-layout container"><aside><div className="eyebrow">A CONSIDERED CONVERSATION</div><h2>It starts with<br/>your product.</h2><p>Fresh produce.<br/>Export packaging.<br/>Material solutions.</p><div className="contact-note"><span className="status-dot"/><span>Built around your requirements.</span></div></aside><ContactForm/></section></>; }
