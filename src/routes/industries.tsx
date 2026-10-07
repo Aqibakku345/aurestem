@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { PageIntro, Photo, TextLink, CTASection, images, meta } from '@/components/aurestem/shared';
 export const Route = createFileRoute('/industries')({ head: () => meta('Industries and supply chains', 'Packaging approaches for fresh produce, agriculture, exporters, retail, distribution, cold chain and packhouses.'), component: Industries });
-const industries = [
+const industries: [string, string, string, string, string][] = [
  ['Fresh Produce','Protecting the quality of living products.','Delicate produce, respiration and moisture changes.','Produce-specific films and formats that support a balanced packaging environment.',images.produce],
  ['Agriculture','Better protection starts at the source.','Quality variation and the transition from harvest to packing.','Packaging selection informed by crop requirements and post-harvest handling.',images.exportsPhoto],
  ['Food Exporters','Freshness across borders.','Long transit times and changing transport conditions.','Packaging systems considered alongside export cartons, transit time and destination needs.',images.exportsPhoto],
