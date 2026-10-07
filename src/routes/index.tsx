@@ -1,24 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute } from '@tanstack/react-router';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { Action, TextLink, SectionHeader, SolutionModule, TechnologyDiagram, CTASection, images, meta } from '@/components/aurestem/shared';
+export const Route = createFileRoute('/')({ head: () => meta('Advanced bio-based packaging', 'Aurestem develops advanced sustainable packaging to protect fresh produce, reduce food loss and support global supply chains.'), component: Home });
+function Home() { return <><section className="home-hero"><img className="hero-photo" src={images.produce} alt="Fresh blueberries, grapes and tomatoes protected by transparent packaging film" width={1920} height={1088} fetchPriority="high"/><div className="hero-content"><div className="eyebrow"><span className="status-dot"/> NATURE. ENGINEERED.</div><h1>Packaging that<br/>keeps fresh produce<br/><span>fresher.</span></h1><p>Aurestem develops advanced sustainable packaging solutions that help producers and exporters extend freshness, reduce food loss and build more efficient supply chains.</p><div className="hero-actions"><Action to="/solutions">Explore Solutions</Action><TextLink to="/contact">Talk to Aurestem</TextLink></div></div><div className="hero-bottom"><span>BIO MATERIALS × PACKAGING TECHNOLOGY</span><span className="hero-image-label"><span className="status-dot"/> DESIGNED AROUND FRESHNESS</span><a href="#performance" aria-label="Scroll to packaging performance"><ArrowDown size={20}/></a></div></section><div className="principle-strip"><span>Rooted in nature.</span><span>Refined by science.</span><span>Engineered for performance.</span><span className="eyebrow">THE AURESTEM APPROACH <ArrowUpRight size={15}/></span></div><section id="performance" className="performance container"><div className="eyebrow">01 / THE CHALLENGE. THE OPPORTUNITY.</div><div className="performance-heading"><h2>LONGER FRESHNESS.<br/><span>LESS FOOD LOSS.</span><br/>SMARTER PACKAGING.</h2><p>Fresh produce is alive. Its packaging should be designed with that in mind.<br/><br/>We bring material science and packaging technology together to protect what matters — from harvest to destination.</p></div><div className="comparison"><div><span className="eyebrow">THE CONVENTIONAL APPROACH</span><h3>Packaging as protection.</h3>{['Standard protection','Limited environmental control','Higher exposure to freshness loss'].map(t => <p key={t}><span>—</span>{t}</p>)}</div><div className="comparison-aurestem"><span className="eyebrow">THE AURESTEM APPROACH</span><h3>Packaging as a system.</h3>{['Optimized packaging environment','Application-specific material engineering','Improved freshness management'].map(t => <p key={t}><span>↗</span>{t}</p>)}</div></div></section><section className="solutions-preview container"><SectionHeader number="02" label="OUR SOLUTIONS" title="Not just packaging. A better way to protect.">Materials and systems designed around your produce, your process and your supply chain.</SectionHeader><SolutionModule index="01" title="Fresh produce." description="Advanced packaging designed around the biological behaviour of fresh produce. Because freshness starts with understanding what is inside." image={images.produce} alt="Fresh berries and grapes in transparent protective packaging" tags={['Produce-specific design','Freshness management','Efficient material use']} preview/><SolutionModule index="02" title="Export packaging." description="Packaging systems designed for long-distance supply chains. Protecting quality through handling, storage and the journey to market." image={images.exportsPhoto} alt="Export cartons of protected fresh grapes on a conveyor" tags={['Long-distance supply chains','Transport protection','Cold-chain compatibility']} preview/><SolutionModule index="03" title="Material solutions." description="Bio-based and engineered material approaches for next-generation packaging. Balancing performance, resource efficiency and application needs." image={images.material} alt="Macro view of translucent engineered packaging film" tags={['Bio-based approaches','Material engineering','Application-led selection']} preview/></section><section className="technology-feature"><div className="container technology-feature-inner"><div><div className="eyebrow">03 / THE SCIENCE OF FRESHNESS</div><h2>Intelligent materials.<br/>Naturally better<br/>possibilities.</h2><p>Breathability. Gas exchange. Moisture management. Packaging is more than a barrier — it is an environment engineered around freshness.</p><TextLink to="/technology">Inside our technology</TextLink></div><TechnologyDiagram/></div></section><section className="industry-preview container"><SectionHeader number="04" label="BUILT FOR THE ENTIRE JOURNEY" title="From production. To destination."/><div className="industry-preview-image"><img src={images.packhouse} alt="Modern fresh-produce packhouse and packaging line" loading="lazy" width={1536} height={1024}/><div className="industry-image-caption"><span>Fresh produce. Global supply chains.</span><TextLink to="/industries">Explore industries</TextLink></div></div></section><CTASection/></>; }
