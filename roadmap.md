@@ -1,5 +1,5 @@
 # AURESTEM website
-- [ ] Build all seven branded pages, shared navigation and footer.
-- [ ] Add packaging photography and scientific diagrams.
-- [ ] Store validated contact enquiries securely.
-- [ ] Verify navigation, enquiries, desktop and mobile layouts.
+- [x] Build all seven branded pages, shared navigation and footer.
+- [x] Add packaging photography and scientific diagrams.
+- [x] Store validated contact enquiries securely.
+- [x] Verify navigation, enquiries, desktop and mobile layouts.
