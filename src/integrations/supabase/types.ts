@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      packaging_enquiries: {
+        Row: {
+          company: string
+          country: string
+          created_at: string
+          email: string
+          id: string
+          industry: string
+          message: string
+          name: string
+          packaging_requirement: string
+          phone: string
+          submission_key: string
+        }
+        Insert: {
+          company: string
+          country: string
+          created_at?: string
+          email: string
+          id?: string
+          industry: string
+          message: string
+          name: string
+          packaging_requirement: string
+          phone?: string
+          submission_key: string
+        }
+        Update: {
+          company?: string
+          country?: string
+          created_at?: string
+          email?: string
+          id?: string
+          industry?: string
+          message?: string
+          name?: string
+          packaging_requirement?: string
+          phone?: string
+          submission_key?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
