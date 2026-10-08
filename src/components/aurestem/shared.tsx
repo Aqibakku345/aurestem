@@ -6,9 +6,11 @@ import produce from '@/assets/produce-hero.jpg';
 import exportsPhoto from '@/assets/export-packaging.jpg';
 import material from '@/assets/material-film.jpg';
 import packhouse from '@/assets/packhouse.jpg';
+import logo from '@/assets/aurestem-logo.png.asset.json';
+import logoLight from '@/assets/aurestem-logo-light.png.asset.json';
 export const images = { produce, exportsPhoto, material, packhouse };
 export const pages = [ ['Solutions', '/solutions'], ['Technology', '/technology'], ['Industries', '/industries'], ['Innovation', '/innovation'], ['About', '/about'], ['Contact', '/contact'] ] as const;
-export function Brand({ large = false }: { large?: boolean }) { return <span className={`brand ${large ? 'brand-large' : ''}`}><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27 15 4h3l11 23h-7L16.5 14 10 27Z" fill="currentColor"/><path d="m13 23 3.5-7 3.5 7Z" fill="currentColor"/></svg>AURESTEM<span className="brand-dot">®</span></span>; }
+export function Brand({ large = false }: { large?: boolean }) { return <span className={`brand brand-image ${large ? 'brand-large' : ''}`}><img src={large ? logoLight.url : logo.url} alt="AURESTEM" width={365} height={274} /></span>; }
 export function Navbar() {
  const [open, setOpen] = useState(false); const menuRef = useRef<HTMLDivElement>(null);
   useEffect(() => { if (!open) return; const old = document.body.style.overflow; document.body.style.overflow = 'hidden'; const listener = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); if (e.key === 'Tab') { const links = menuRef.current?.querySelectorAll<HTMLElement>('a, button'); if (!links?.length) return; const first = links[0]; const last = links[links.length - 1]; if (!first || !last) return; if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); } else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); } } }; document.addEventListener('keydown', listener); menuRef.current?.querySelector<HTMLElement>('a')?.focus(); return () => { document.body.style.overflow = old; document.removeEventListener('keydown', listener); }; }, [open]);
